@@ -4,7 +4,7 @@ class Paginas
     static public function enlacesPaginas($enlaces)
     {
         try {
-            $link = new PDO('mysql:host=localhost; dbname=encuesta; charset=UTF8', 'root','',array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+            $link = new PDO('mysql:host=localhost; dbname=cuestionario; charset=UTF8', 'root','',array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
             $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch(PDOException $e) {
             echo "Error: " . $e->getMessage();

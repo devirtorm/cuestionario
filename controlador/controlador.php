@@ -152,7 +152,7 @@ class Controlador
 
           // Realiza una llamada AJAX para obtener los datos de las preguntas
           $.ajax({
-            url: 'modelo/obtener_respuestas.php', // La URL donde se obtienen los datos de las preguntas
+            url: 'controlador/obtener_respuestas.php', // La URL donde se obtienen los datos de las preguntas
             type: 'POST',
             dataType: 'json', // Asegúrate de que jQuery espere y parsee la respuesta como JSON
             data: {
@@ -172,8 +172,7 @@ class Controlador
               $('#modalEditar').modal('show');
             },
             error: function(xhr, status, error) {
-              // Maneja posibles errores
-              console.error(error);
+              
             }
           });
 

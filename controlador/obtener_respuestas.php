@@ -1,7 +1,6 @@
 <?php
-include '../controlador/controlador.php'; // Asume que la clase está en este archivo
+include '../controlador/controlador.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id_encuesta'])) {
-    require_once 'conexion.php'; // Asume que la clase de conexión está en este archivo
 
     $idEncuesta = $_POST['id_encuesta'];
 
