@@ -17,6 +17,10 @@
         <a class="nav-link text-success fw-bold" href="index.php?accion=categoria">Categorias <span class="sr-only">(current)</span></a>
         </a> 
       </li>
+      <li class="nav-item active">
+        <a class="nav-link text-success fw-bold" href="index.php?accion=lista_encuesta">Responder encuestas <span class="sr-only">(current)</span></a>
+        </a> 
+      </li>
     </ul>
   </div>
 </nav>

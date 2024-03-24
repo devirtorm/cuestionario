@@ -241,4 +241,58 @@ $('#preguntasContenido').html(preguntasHtml);
 
 <?php
   }
+
+  static public function Obtener_lista_encuesta()
+  {
+
+    $resultados = Datos::Obtener_encuesta_modelo('encuestas');
+    $json_resultados = json_encode($resultados);
+
+?>
+
+
+
+    <script>
+      $(document).ready(function() {
+        $('#miTabla').DataTable({
+          data: <?php echo $json_resultados ?>,
+          scrollY: 400,
+          paging: true,
+          columns: [{
+              data: 'titulo',
+              title: 'Titulo'
+            },
+            {
+              data: 'descripcion',
+              title: 'Descripción'
+            },
+            {
+              data: 'fecha_creacion',
+              title: 'Fecha de creación'
+            },
+            {
+              data: null,
+              orderable: false,
+              render: function(data, type, row) {
+                var rowData = {
+                  id: row.id_encuesta,
+                };
+                return '<a href="index.php?accion=responder&=' + rowData.id + '" class="btn btn-success editar">Responder <i class="fa-solid fa-pencil"></i></a>';
+              },
+
+            }
+          ],
+          language: {
+            url: "//cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
+          }
+        });
+
+      });
+
+    </script>
+
+
+
+<?php
+  }
 }
