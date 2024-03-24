@@ -1,6 +1,8 @@
 <?php
-include '../controlador/controlador.php';
+
+include '../modelo/modelo.php'; // Asume que la clase está en este archivo
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id_encuesta'])) {
+    
 
     $idEncuesta = $_POST['id_encuesta'];
 
@@ -9,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id_encuesta'])) {
 
     // Devuelve las preguntas en formato JSON
     header('Content-Type: application/json');
-    echo json_encode($preguntas);    
+    echo json_encode($preguntas);
 } else {
     // Manejar error: método no permitido o falta el id_encuesta
     http_response_code(400); // Bad Request

@@ -137,7 +137,7 @@ class Controlador
                 var rowData = {
                   id: row.id_encuesta,
                 };
-                return '<button class="btn btn-primary editar" data-bs-toggle="modal" data-bs-target="#modalEditar" data-row=\'' + JSON.stringify(rowData) + '\'><i class="fa-solid fa-eye"></i></button>';
+                return '<button  class="btn btn-primary editar detallesEncuesta" data-bs-toggle="modal" data-bs-target="#modalEditar" data-row=\'' + JSON.stringify(rowData) + '\'><i class="fa-solid fa-eye"></i></button>';
               },
 
             }
@@ -160,19 +160,33 @@ class Controlador
             },
             success: function(data) {
               // Ahora `data` debería ser un arreglo si el servidor envía una respuesta en formato JSON válido
-              var preguntasHtml = '';
-              data.forEach(function(pregunta) {
-                preguntasHtml += '<p>' + pregunta.textoPregunta + '</p>'; // Ajusta según tu estructura de datos
-              });
+              // Genera HTML basado en los datos proporcionados
+var preguntasHtml = '<ul>'; // Comienza una lista no ordenada
 
-              // Rellena el modal con los datos de las preguntas
-              $('#preguntasContenido').html(preguntasHtml);
+data.forEach(function(pregunta) {
+    preguntasHtml += '<li>';
+    preguntasHtml += '<strong>ID Pregunta:</strong> ' + pregunta.id_pregunta + '<br>';
+    preguntasHtml += '<strong>Pregunta:</strong> ' + pregunta.pregunta + '<br>';
+    preguntasHtml += '<strong>Tipo Pregunta:</strong> ' + pregunta.tipo_pregunta + '<br>';
+    preguntasHtml += '<strong>Opciones:</strong> ' + pregunta.opciones + '<br>';
+    preguntasHtml += '</li>';
+});
+
+preguntasHtml += '</ul>'; // Cierra la lista no ordenada
+
+// Inserta el HTML generado en el elemento con el ID 'preguntasContenido'
+$('#preguntasContenido').html(preguntasHtml);
+
+              console.log(data);
 
               // Abre el modal
               $('#modalEditar').modal('show');
             },
             error: function(xhr, status, error) {
-              
+
+              // Maneja posibles errores
+              console.log(error);
+
             }
           });
 
