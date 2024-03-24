@@ -10,7 +10,7 @@
       </div>
       <div class="modal-body">
         <!-- Aquí puedes colocar los elementos donde mostrarás las preguntas, por ejemplo: -->
-        <div id="preguntasContenido"></div>
+        <div id="preguntasContenido">s</div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
